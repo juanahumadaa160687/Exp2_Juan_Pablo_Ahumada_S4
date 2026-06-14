@@ -1,0 +1,27 @@
+.form-text{
+  color: var(--cffy-theme-primary-a40);
+}
+
+#admins{
+  color: var(--cffy-theme-primary-a40);
+}
+
+#productos{
+  color: var(--cffy-theme-primary-a40);
+  border: 2px solid var(--cffy-theme-primary-a40);
+}
+
+.card{
+  color: var(--cffy-theme-primary-a40);
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  border: none;
+}
+
+.card-header{
+  color: var(--cffy-theme-primary-a40);
+  background-color: transparent;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid var(--cffy-theme-surface-a30);
+}

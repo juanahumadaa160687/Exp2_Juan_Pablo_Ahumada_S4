@@ -1,0 +1,12 @@
+.card{
+  background-color: var(--cffy-theme-surface-a0);
+  border: none;
+}
+
+.card-title{
+  color: var(--cffy-theme-primary-a40);
+}
+
+.card-text{
+  color: var(--cffy-theme-primary-a40);
+}

@@ -1,0 +1,30 @@
+.navbar{
+  background-color: var(--cffy-theme-surface-a10);
+  margin-bottom: 30px;
+}
+
+.nav-link{
+  color: var(--cffy-theme-primary-a40);
+  text-decoration: none;
+}
+
+.nav-link:hover{
+  color: #fff;
+}
+
+.nav-link:focus{
+  color: var(--cffy-theme-primary-a20);
+}
+
+.dropdown-menu{
+  background-color: var(--cffy-theme-surface-a10);
+
+  .dropdown-item{
+    color: var(--cffy-theme-primary-a40);
+  }
+}
+
+.icono{
+  color: var(--cffy-theme-primary-a50);
+  font-size: 20pt;
+}

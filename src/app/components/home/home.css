@@ -1,0 +1,61 @@
+.card{
+  background-color: var(--cffy-theme-surface-a10);
+  border: 1px solid var(--cffy-theme-primary-a40);
+  border-radius: 20px;
+
+  animation: card_anim 1s ease 0s 1 normal forwards;
+
+  .card-title{
+    color: var(--cffy-theme-primary-a40);
+  }
+
+  .card-text{
+    color: var(--cffy-theme-primary-a40);
+  }
+
+  button{
+    background-color: var(--cffy-theme-primary-a0);
+    border: none;
+  }
+
+  h2{
+    color: var(--cffy-theme-primary-a40);
+  }
+
+  a{
+    color: var(--cffy-theme-primary-a0);
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+}
+
+.card:hover{
+  scale: 1.05;
+}
+
+@keyframes card_anim {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.welcome{
+  h1{
+    color: var(--cffy-theme-primary-a40);
+  }
+  p{
+    color: var(--cffy-theme-primary-a40);
+  }
+}
+
+.card-footer{
+  border-top: 1px solid var(--cffy-theme-primary-a40);
+}

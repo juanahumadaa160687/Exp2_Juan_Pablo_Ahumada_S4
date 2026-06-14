@@ -1,0 +1,123 @@
+<router-outlet>
+  <app-navbar></app-navbar>
+  <br>
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+      <div class="container-fluid row gap-3 d-flex justify-content-center align-items-center">
+
+        <div class="col-md-12 gap-3 d-flex justify-content-center align-items-start">
+
+          <div class="card col">
+            <div class="card-header pt-3" id="header1">
+              <h5 class="card-title mb-0">Nuevo Administrador</h5>
+            </div>
+            <div class="card-body">
+              <form class="row needs-validation" id="admin_form" novalidate>
+                <div class="col-md-6 mb-3">
+                  <label for="admin_nombre" class="form-label">Nombre</label>
+                  <input [(ngModel)]="nombre" type="text" class="form-control" placeholder="Nombre" name="admin_nombre" required>
+                  <div class="invalid-feedback" id="name_feedback">
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="admin_apellido" class="form-label">Apellido</label>
+                  <input [(ngModel)]="apellido" type="text" class="form-control" placeholder="Apellido" name="admin_apellido" required>
+                  <div class="invalid-feedback" id="lastname_feedback"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="admin_username" class="form-label">Username</label>
+                  <input [(ngModel)]="username" type="text" class="form-control" placeholder="Username" name="admin_username" required>
+                  <div class="invalid-feedback" id="userName_feedback"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="admin_email" class="form-label">Correo Electrónico</label>
+                  <input [(ngModel)]="email" type="email" class="form-control" placeholder="Correo Electrónico" name="admin_email" required>
+                  <div class="invalid-feedback" id="correo_feedback"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="admin_password" class="form-label">Contraseña</label>
+                  <input [(ngModel)]="password" type="password" class="form-control" placeholder="Contraseña" name="admin_password" required>
+                  <div class="form-text">La contraseña debe tener al menos 8 caracteres, mayúsculas, minúsculas, dígitos y caracteres especiales (@$!%*?&)</div>
+                  <div class="invalid-feedback" id="contrasena_feedback"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="admin_confirm_password" class="form-label">Confirmar Contraseña</label>
+                  <input [(ngModel)]="confirmPassword" type="password" class="form-control" placeholder="Confirma tu contraseña" name="admin_confirm_password" required>
+                  <div class="invalid-feedback" id="confirmContrasena_feedback"></div>
+                </div>
+                <div class=" d-flex justify-content-center gap-2">
+                  <button class="pt-2 pb-2 limpiar" type="reset">Limpiar</button>
+                  <button class="pt-2 pb-2" (click)="submitFormAdmin($event)">Registrarse</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="card col">
+            <div class="card-header pt-3" id="header2">
+              <h5 class="card-title mb-0">Nuevo Producto</h5>
+            </div>
+            <div class="card-body">
+              <form class="row" id="product_form">
+                <div class="col-md-2 mb-3">
+                  <label for="inputId" class="form-label">ID</label>
+                  <input [(ngModel)]="id_producto" type="number" class="form-control" name="inputId" placeholder="ID" required>
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="productName" class="form-label">Nombre del Producto</label>
+                  <input [(ngModel)]="nombre_producto" type="text" class="form-control" name="productName" placeholder="Nombre del Producto" required>
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="productCategory" class="form-label">Categoría del Producto</label>
+                  <select [(ngModel)]="categoria_producto" class="form-select" name="productCategory" required>
+                    <option value="">Categoría</option>
+                    <option value="Juegos de Mesa">Juegos de Mesa</option>
+                    <option value="Juegos de Cartas">Juegos de Cartas</option>
+                    <option value="Juegos de Rol">Juegos de Rol</option>
+                  </select>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label for="productPrice" class="form-label">Precio</label>
+                  <input [(ngModel)]="precio_producto" type="number" class="form-control" name="productPrice" placeholder="Precio" required>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label for="productStock" class="form-label">Stock</label>
+                  <input [(ngModel)]="stock_producto" type="number" class="form-control" name="productStock" placeholder="Stock" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="productImage" class="form-label">URL de la Imagen</label>
+                  <input [(ngModel)]="imagen_producto" type="text" class="form-control" name="productImage" placeholder="Imagen" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="productFeatured" class="form-label">¿Producto Destacado?</label>
+                  <select [(ngModel)]="destacado" class="form-select" name="productFeatured" required>
+                    <option value="">¿Producto Destacado?</option>
+                    <option value="true">Sí</option>
+                    <option value="false">No</option>
+                  </select>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label for="productDescription" class="form-label">Descripción del Producto</label>
+                  <textarea [(ngModel)]="descripcion_producto" class="form-control" name="productDescription" rows="4" placeholder="Descripción" required></textarea>
+                </div>
+                <div class="d-flex justify-content-center gap-2">
+                  <button type="reset" class="pt-2 pb-2 limpiar" >Limpiar</button>
+                  <button class="pt-2 pb-2" (click)="submitFormProducto($event)">Guardar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+            <div class="col card">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Productos Registrados</h5>
+              </div>
+              <div class="card-body">
+                <table id="adminTable" class="display"></table>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  <br>
+  <app-footer></app-footer>
+</router-outlet>

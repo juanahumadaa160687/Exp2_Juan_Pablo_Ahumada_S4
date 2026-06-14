@@ -1,0 +1,37 @@
+<router-outlet>
+
+  <footer class="container-fluid d-flex justify-content-center align-content-center flex-column mt-5 pt-3">
+    <div class="row">
+      <div class="col-md-4 p-2 d-flex justify-content-center align-items-center">
+        <img ngSrc="/logo_ludus.png" alt="logo ludus arcanus" width="250" height="150">
+      </div>
+      <div class="col-md-4 p-2 d-flex justify-content-center flex-column align-items-center gap-2">
+        <a class="nav-link" routerLink="/">Home</a>
+        <a class="nav-link" href="ofertas.html">Ofertas</a>
+        <a class="nav-link" href="terminos_condiciones.html">Términos y Condiciones</a>
+        <a class="nav-link" href="privacidad.html">Privacidad</a>
+      </div>
+      <div class="col-md-4 p-2 d-flex justify-content-center flex-column align-items-center">
+        <p><i class="bi bi-geo-alt-fill"></i> Calle Falsa 123, Santiago</p>
+        <p><i class="bi bi-telephone-fill"></i> +56 9 4567890</p>
+        <p><i class="bi bi-envelope-at-fill"></i> ludus_arcanus@gmail.com</p>
+      </div>
+    </div>
+    <br>
+    <div class="derecho row pt-4 ms-3 me-3">
+
+      <div class="col-md-6 d-flex justify-content-start align-items-center gap-3">
+        <p id="copyright" class="mb-2">© {{ year }} Ludus Arcanus. Todos los derechos reservados.</p>
+      </div>
+
+      <div class="col-md-6 d-flex justify-content-end align-items-center gap-3">
+        <a class="nav-link mb-2" href="#"><i class="bi bi-facebook"></i></a>
+        <a class="nav-link mb-2" href="#"><i class="bi bi-instagram"></i></a>
+        <a class="nav-link mb-2" href="#"><i class="bi bi-youtube"></i></a>
+        <a class="nav-link mb-2" href="#"><i class="bi bi-twitch"></i></a>
+      </div>
+
+    </div>
+  </footer>
+
+</router-outlet>

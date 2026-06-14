@@ -1,0 +1,56 @@
+<router-outlet>
+  <app-navbar></app-navbar>
+  <br>
+  <main>
+    <div class="container d-flex flex-column" id="carro" style="height: 60vh">
+      <div class="container title p-1 mb-5 d-flex justify-content-start align-items-center">
+        <h2>Carrito de Compras</h2>
+      </div>
+      <br>
+      <div class="d-flex justify-content-center align-items-center" style="width: 100%">
+        <table class="table table-borderless table-responsive">
+          <thead>
+          <tr>
+            <th scope="col" style="color: var(--cffy-theme-primary-a40)">Producto</th>
+            <th scope="col" style="color: var(--cffy-theme-primary-a40)">Precio Unitario</th>
+            <th class="text-center" scope="col" style="color: var(--cffy-theme-primary-a40)">Acciones</th>
+          </tr>
+          </thead>
+          <tbody id="productos_carrito">
+            @for (producto of carrito_usuario; track producto.id){
+              <tr>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td>{{ producto.precio }}</td>
+                <td class="text-center">
+                  <button class="btn btn-danger btn-sm" (click)="eliminarProducto(producto.id)"><i class="bi bi-trash-fill"></i></button>
+                </td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="3" class="text-center">No hay productos en el carrito.</td>
+              </tr>
+            }
+          </tbody>
+          <tfoot id="productos_total">
+              <tr>
+                  <td colspan="2" class="text-end"><strong>Total a Pagar:</strong></td>
+                  <td class="text-center"><strong>{{ total }}</strong></td>
+                </tr>
+          </tfoot>
+        </table>
+      </div>
+      <br>
+      <div class="d-flex justify-content-end align-items-end" id="total_pagar">
+
+      </div>
+      <br>
+      <div class="d-flex justify-content-end align-items-end">
+        <button class="limpiar pt-2 pb-2 me-2" id="btn_limpiar" style="width: 15%" (click)="limpiarCarrito()">Limpiar</button>
+        <button class="pt-2 pb-2" id="checkout" style="width: 15%">Finalizar Compra</button>
+      </div>
+    </div>
+  </main>
+  <br>
+  <app-footer></app-footer>
+</router-outlet>

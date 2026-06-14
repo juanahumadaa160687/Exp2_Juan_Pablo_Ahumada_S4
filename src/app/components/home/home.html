@@ -1,0 +1,38 @@
+<router-outlet>
+  <app-navbar></app-navbar>
+  <br>
+
+    <div class="container welcome mb-5 d-flex flex-column justify-content-center align-items-start">
+      <h1>¡Bienvenido a Ludus Arcanus!</h1>
+      <p class="mb-0">En Ludus Arcanus, nos apasiona el mundo de los juegos de mesa, cartas y rol. Nuestra misión es ofrecer a nuestros clientes una experiencia de compra única, con una amplia selección de productos de alta calidad, desde los clásicos hasta las últimas novedades del mercado. Ya sea que seas un veterano de los juegos de mesa, un entusiasta de los juegos de cartas o un aventurero de los juegos de rol, en Ludus Arcanus encontrarás todo lo que necesitas para disfrutar de tus pasatiempos favoritos. ¡Explora nuestra tienda y descubre el universo de diversión que tenemos para ti!</p>
+    </div>
+
+    <div class="container title p-1 mb-5 d-flex justify-content-start align-items-center">
+      <h2 class="mb-0">Destacados</h2>
+    </div>
+
+    <div class="destacados container d-flex justify-content-center align-items-center flex-wrap gap-4" id="destacados">
+
+      @for (juego of prod_destacados; track juego.id){
+
+        @if (juego.stock > 0 && juego.destacado) {
+
+          <div class="card p-3" style="width: 18rem;">
+            <img ngSrc="/{{juego.imagen}}" class="card-img-top" alt="Imagen de {{juego.nombre}}" width="50" height="250">
+            <div class="card-body">
+              <h5 class="card-title mt-1">{{ juego.nombre }}</h5>
+              <p class="card-text"><strong>Precio:</strong> ${{ juego.precio }}</p>
+              <a routerLink="/producto/{{ juego.id }}">Ver Detalles</a>
+            </div>
+            <div class="card-footer d-flex justify-content-center align-items-center pt-3">
+              <button class="pt-2 pb-2" (click)="addCart(juego.id)"><i class="bi bi-cart4"></i> Comprar</button>
+            </div>
+          </div>
+        }
+      } @empty {
+        <p style="color: var(--cffy-theme-primary-a30);">No hay productos destacados disponibles en este momento. ¡Vuelve pronto para descubrir nuestras novedades!</p>
+      }
+    </div>
+  <br>
+  <app-footer></app-footer>
+</router-outlet>

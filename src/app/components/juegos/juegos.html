@@ -1,0 +1,45 @@
+<router-outlet>
+  <app-navbar></app-navbar>
+  <br>
+  <main>
+
+    <div class="container title p-1 mb-3 d-flex justify-content-start align-items-center">
+      <h2 class="mb-0">{{categoria}}</h2>
+    </div>
+    <div class="container mb-5 d-flex justify-content-center align-items-start" style="color: var(--cffy-theme-primary-a40);">
+      <p>Descubre nuestra amplia selección de juegos, desde clásicos hasta los más innovadores. Perfectos para todas las edades y ocasiones, nuestros juegos ofrecen diversión garantizada para amigos y familiares. ¡Explora nuestra colección y encuentra el juego perfecto para tu próxima reunión!</p>
+    </div>
+
+
+    @for (juego of juegos; track juego.id){
+
+      @if (juego.stock > 0) {
+
+        <div class="destacados container d-flex justify-content-center align-items-center flex-wrap gap-4">
+
+            <div class="card p-3" style="width: 18rem;">
+              <img ngSrc="/{{juego.imagen}}" class="card-img-top" alt="Imagen de {{juego.nombre}}" width="50" height="250">
+              <div class="card-body">
+                <h5 class="card-title mt-1">{{ juego.nombre }}</h5>
+                <p class="card-text">{{ juego.categoria }}</p>
+                <p class="card-text">{{ juego.descripcion }}</p>
+                <p class="card-text"><strong>Precio:</strong> ${{ juego.precio }}</p>
+                <p class="card-text">Stock: {{ juego.stock }}</p>
+                <a routerLink="/producto/{{ juego.id }}">Ver Detalles</a>
+              </div>
+              <div class="card-footer d-flex justify-content-center align-items-center pt-3">
+                <button class="pt-2 pb-2" (click)="comprarJuego(juego.id)"><i class="bi bi-cart4"></i> Comprar</button>
+              </div>
+            </div>
+        </div>
+      }
+
+    } @empty {
+      <div class="destacados container d-flex justify-content-center align-items-center flex-wrap gap-4" id="juegos-cartas">
+        <p style="color: var(--cffy-theme-primary-a30);">No hay productos destacados disponibles en este momento. ¡Vuelve pronto para descubrir nuestras novedades!</p>
+      </div>
+    }
+  </main>
+  <br>
+  <app-footer></app-footer>
+</router-outlet>
