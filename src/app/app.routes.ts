@@ -46,7 +46,7 @@ export const routes: Routes = [
     component: Ofertas,
   },
   {
-    path: 'user-profile',
+    path: 'user-profile/:username',
     component: UserProfile,
   },
   {

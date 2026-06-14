@@ -19,7 +19,7 @@
               <a class="nav-link" routerLink="/dashboard" tabindex="-1">Bienvenido {{ user }}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="" tabindex="-1" (click)="logout()">Cerrar Sesión</a>
+              <a class="nav-link" role="button" tabindex="-1" (click)="logout()">Cerrar Sesión</a>
             </li>
 
           } @else if (user && role ==='usuario') {
@@ -39,16 +39,16 @@
 
             @if (carro_compra.length > 0) {
               <li class="nav-item">
-                <a class="nav-link position-relative" href="#" tabindex="-1" id="carrito_compras">
+                <a class="nav-link position-relative" routerLink="/carro-compras" tabindex="-1" id="carrito_compras">
                   <i class="bi bi-cart4"></i>
                 </a>
               </li>
             }
               <li class="nav-item">
-                <a class="nav-link" routerLink="" tabindex="-1">Bienvenido {{ user }}</a>
+                <a class="nav-link" routerLink="/user-profile/{{user}}" tabindex="-1">Bienvenido {{ user }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="" tabindex="-1" (click)="logout()">Cerrar Sesión</a>
+                <a class="nav-link" role="button" tabindex="-1" (click)="logout()">Cerrar Sesión</a>
               </li>
           }
 

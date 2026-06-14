@@ -25,23 +25,46 @@ export class Home {
   constructor(private router: Router) {}
 
   addCart(id: number): void {
-    let cart = JSON.parse(localStorage.getItem("carrito") || "[]");
 
-    let productos = JSON.parse(localStorage.getItem("productos") || "[]");
+    let user_exists = sessionStorage.getItem("username");
 
-    let producto = productos.find((prod: any) => prod.id === id);
+    if (user_exists) {
+      let cart = JSON.parse(localStorage.getItem("carrito") || "[]");
 
-    cart.push(producto);
+      let productos = JSON.parse(localStorage.getItem("productos") || "[]");
 
-    localStorage.setItem("carrito", JSON.stringify(cart));
+      let producto = productos.find((prod: any) => prod.id === id);
 
-    Swal.fire({
-      title: 'Producto añadido al carrito',
-      icon: 'success',
-      timer: 3000,
-    }).then(() => {
-      window.location.reload();
-    });
+      cart.push(producto);
+
+      localStorage.setItem("carrito", JSON.stringify(cart));
+
+      Swal.fire({
+        title: 'Producto añadido al carrito',
+        icon: 'success',
+        timer: 3000,
+      }).then(() => {
+        window.location.reload();
+      });
+    }
+    else {
+      Swal.fire({
+        icon: 'info',
+        text: 'Inicia sesión para añadir productos al carrito',
+        showConfirmButton: true,
+        confirmButtonText: 'Iniciar Sesión',
+        showCancelButton: true,
+        focusConfirm: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/sign-in']);
+        }
+        else {
+          location.reload();
+        }
+      })
+    }
+
   }
 
 }

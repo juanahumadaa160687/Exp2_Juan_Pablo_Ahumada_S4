@@ -10,7 +10,7 @@
 
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                <input type="text" [(ngModel)]="nombre" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
                 <label for="nombre" class="">Nombre</label>
                 <div class="invalid-feedback" id="nombre_feedback">
                 </div>
@@ -19,7 +19,7 @@
 
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
+                <input type="text" [(ngModel)]="apellido" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
                 <label for="apellido" class="">Apellido</label>
                 <div class="invalid-feedback" id="apellidos_feedback">
                 </div>
@@ -28,7 +28,7 @@
 
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                <input type="text" [(ngModel)]="username" class="form-control" id="username" name="username" placeholder="Username">
                 <label for="username" class="">Username</label>
                 <div class="invalid-feedback" id="username_feedback">
                 </div>
@@ -37,7 +37,7 @@
 
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" name="email">
+                <input type="email" [(ngModel)]="email" class="form-control" id="email" placeholder="Correo Electrónico" name="email">
                 <label for="email" class="">Correo Electrónico</label>
                 <div class="form-text">No compartiremos esta información con terceros.</div>
                 <div class="invalid-feedback" id="email_feedback"></div>
@@ -46,7 +46,7 @@
 
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Fecha de nacimiento">
+                <input type="date" [(ngModel)]="birthday" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Fecha de nacimiento">
                 <label for="fecha_nacimiento" class="">Fecha de Nacimiento</label>
                 <div class="invalid-feedback" id="fecha_nacimiento_feedback">
                 </div>
@@ -55,15 +55,15 @@
 
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="direccion" placeholder="Dirección de despacho" name="direccion">
-                <label for="direccion" class="">Dirección de Despacho</label>
+                <input type="text" [(ngModel)]="address" class="form-control" id="address" placeholder="Dirección de despacho" name="address">
+                <label for="address" class="">Dirección de Despacho</label>
                 <div class="form-text">Opcional</div>
               </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
+                <input type="password" [(ngModel)]="password" class="form-control" id="password" placeholder="Contraseña" name="password">
                 <label for="password" class="">Contraseña</label>
                 <div class="form-text">La contraseña debe tener al menos 8 caracteres, mayúsculas, minúsculas, dígitos y caracteres especiales (@$!%*?&)</div>
                 <div class="invalid-feedback" id="password_feedback">
@@ -71,12 +71,19 @@
               </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirma tu contraseña" name="confirmPassword">
+                <input type="password" [(ngModel)]="confirmPassword" class="form-control" id="confirmPassword" placeholder="Confirma tu contraseña" name="confirmPassword">
                 <label for="confirmPassword" class="">Confirmar Contraseña</label>
                 <div class="invalid-feedback" id="confirmPassword_feedback">
                 </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-floating mb-3">
+                <input type="text" [(ngModel)]="imagen" class="form-control" id="fotoPerfil" placeholder="Foto Perfil" name="fotoPerfil">
+                <label for="fotoPerfil" class="">Foto de Perfil</label>
               </div>
             </div>
 

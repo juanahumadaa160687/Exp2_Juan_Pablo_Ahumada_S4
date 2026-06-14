@@ -1,1 +1,54 @@
-<p>user-profile works!</p>
+<router-outlet>
+  <app-navbar></app-navbar>
+  <br>
+  <main>
+    <div class="container">
+      <div class="row">
+
+        <div class="container d-flex justify-content-center align-items-center flex-wrap gap-4">
+
+          <div class="col-8 card p-1 d-flex flex-wrap">
+            <div class="row">
+              <div class="col-md-4 d-flex flex-column align-items-center text-center">
+                <img ngSrc="/profile-pic/user-profile.svg" class="img-fluid" alt="User Avatar" width="250" height="250">
+                <h4 class="card-title">{{nombre}} {{apellido}}</h4>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <p class="card-text"><strong>Username</strong></p>
+                  <p class="card-text"><small>{{username}}</small></p>
+                  <br>
+                  <p class="card-text"><strong>Email</strong></p>
+                  <p class="card-text"><small>{{email}}</small></p>
+                  <br>
+                  <p class="card-text"><strong>Fecha de Nacimiento</strong></p>
+                  <p class="card-text"><small>{{fecha_nacimiento}}</small></p>
+                  <br>
+                  <p class="card-text"><strong>Dirección de Despacho</strong></p>
+                  <p class="card-text"><small>{{direccion}}</small></p>
+                </div>
+                <div class="card-footer d-flex justify-content-around align-items-center gap-2">
+                  <button class="btn btn-primary btn-sm" (click)="editProfile($event)">Editar Perfil</button>
+                  <button class="btn btn-secondary btn-sm" (click)="cambiarPassword($event)">Cambiar Contraseña</button>
+                  <button class="btn btn-danger btn-sm" (click)="deleteProfile()">Eliminar Cuenta</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4 card p-1 d-flex" >
+            <div class="card-header">
+              <h5 class="card-title">Mis Pedidos</h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Aquí puedes ver tus pedidos recientes y su estado.</p>
+              <table class="display" id="tablaPedidos"></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <br>
+  <app-footer></app-footer>
+</router-outlet>

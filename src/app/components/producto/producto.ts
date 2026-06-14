@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, RouterOutlet} from '@angular/router';
+import {ActivatedRoute, RouterOutlet, Router} from '@angular/router';
 import {NavbarComponent} from '../navbar/navbar';
 import {Footer} from '../footer/footer';
 import Swal from 'sweetalert2';
@@ -27,7 +27,7 @@ export class Producto implements OnInit {
 
   productos = JSON.parse(localStorage.getItem('productos') || '[]');
 
-  constructor(private router: RouterOutlet, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -49,22 +49,47 @@ export class Producto implements OnInit {
 
   agregarCarro(id:string){
 
-    let shoppingCart = JSON.parse(localStorage.getItem('carrito') || '[]');
+    let user_exists = sessionStorage.getItem('username');
 
-    let producto = this.productos.find((p: any) => p.id === id);
+    if(user_exists){
+      let shoppingCart = JSON.parse(localStorage.getItem('carrito') || '[]');
 
-    shoppingCart.push(producto);
+      let producto = this.productos.find((p: any) => p.id === id);
 
-    localStorage.setItem('carrito', JSON.stringify(shoppingCart));
+      shoppingCart.push(producto);
 
-    Swal.fire({
-      icon: 'success',
-      title: 'Éxito',
-      text: 'Producto agregado al carrito de compras',
-      timer: 3000
-    }).then((result) => {
-      location.reload();
-    });
+      localStorage.setItem('carrito', JSON.stringify(shoppingCart));
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Éxito',
+        text: 'Producto agregado al carrito de compras',
+        timer: 3000
+      }).then((result) => {
+        location.reload();
+      });
+    }
+    else {
+
+      Swal.fire({
+        icon: 'info',
+        text: 'Debes iniciar sesión para agregar productos al carrito de compras',
+        showConfirmButton: true,
+        confirmButtonText: 'Iniciar Sesión',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/sign-in']);
+        }
+        else {
+          location.reload();
+        }
+      });
+
+    }
+
+
 
   }
 

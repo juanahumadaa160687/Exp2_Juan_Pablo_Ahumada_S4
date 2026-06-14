@@ -1,0 +1,5 @@
+.card{
+  background-color: var(--cffy-theme-surface-a0);
+  color: var(--cffy-theme-primary-a40);
+  border: 1px solid var(--cffy-theme-primary-a40);
+}

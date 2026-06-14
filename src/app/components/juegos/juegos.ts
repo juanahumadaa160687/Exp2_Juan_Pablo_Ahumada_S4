@@ -55,24 +55,44 @@ export class Juegos implements OnInit {
 
   comprarJuego(id: number) {
 
-    let shoppingCart = JSON.parse(localStorage.getItem('carrito') || '[]');
+    let user_exists = sessionStorage.getItem('username');
 
-    let juego = this.juegos.find((j: any) => j.id === id);
+    if (user_exists) {
 
-    shoppingCart.push(juego);
+      let shoppingCart = JSON.parse(localStorage.getItem('carrito') || '[]');
 
-    localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+      let juego = this.juegos.find((j: any) => j.id === id);
 
-    Swal.fire({
-      icon: 'success',
-      title: 'Éxito',
-      text: 'Juego agregado al carrito de compras',
-      timer: 3000
-    }).then((result) => {
-      location.reload();
-    })
+      shoppingCart.push(juego);
 
+      localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Éxito',
+        text: 'Juego agregado al carrito de compras',
+        timer: 3000
+      }).then((result) => {
+        location.reload();
+      });
+    }
+
+    else {
+      Swal.fire({
+        icon: 'info',
+        text: 'Debes iniciar sesión para comprar este juego',
+        showConfirmButton: true,
+        confirmButtonText: 'Iniciar Sesión',
+        showCancelButton: true,
+      }).then(result => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/sign-in']);
+        }
+        else {
+          location.reload();
+        }
+      });
+    }
   }
-
 }
 
