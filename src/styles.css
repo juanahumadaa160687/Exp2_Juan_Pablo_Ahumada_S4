@@ -1,1 +1,99 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap");
+
+:root{
+  /** Theme primary colors */
+  --cffy-theme-primary-a0: #faba50;
+  --cffy-theme-primary-a10: #fbc166;
+  --cffy-theme-primary-a20: #fcc87a;
+  --cffy-theme-primary-a30: #fdd08c;
+  --cffy-theme-primary-a40: #fdd79e;
+  --cffy-theme-primary-a50: #feddaf;
+
+  /** Theme surface colors */
+  --cffy-theme-surface-a0: #121212;
+  --cffy-theme-surface-a10: #252525;
+  --cffy-theme-surface-a20: #393939;
+  --cffy-theme-surface-a30: #4f4f4f;
+  --cffy-theme-surface-a40: #666;
+  --cffy-theme-surface-a50: #7d7d7d;
+
+  /** Theme tonal surface colors */
+  --cffy-theme-surface-tonal-a0: #252019;
+  --cffy-theme-surface-tonal-a10: #37332c;
+  --cffy-theme-surface-tonal-a20: #4b4640;
+  --cffy-theme-surface-tonal-a30: #5f5b55;
+  --cffy-theme-surface-tonal-a40: #74706b;
+  --cffy-theme-surface-tonal-a50: #8a8782;
+
+  /** Success colors */
+  --cffy-theme-success-a0: #7dff95;
+  --cffy-theme-success-a10: #9dffac;
+  --cffy-theme-success-a20: #b8ffc1;
+
+  /** Warning colors */
+  --cffy-theme-warning-a0: #ffbc5e;
+  --cffy-theme-warning-a10: #ffca83;
+  --cffy-theme-warning-a20: #ffd8a4;
+
+  /** Danger colors */
+  --cffy-theme-danger-a0: #ff8080;
+  --cffy-theme-danger-a10: #ff9b99;
+  --cffy-theme-danger-a20: #ffb5b2;
+
+  /** Info colors */
+  --cffy-theme-info-a0: #87d1ff;
+  --cffy-theme-info-a10: #a1dbff;
+  --cffy-theme-info-a20: #b9e4ff;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: Roboto, sans-serif;
+  background-color: var(--cffy-theme-surface-a0);
+}
+
+main{
+  flex: 1;
+}
+
+.title{
+  border-top: 1px solid var(--cffy-theme-primary-a40);
+  border-bottom: 1px solid var(--cffy-theme-primary-a40);
+
+  h2{
+    color: var(--cffy-theme-primary-a40);
+  }
+
+  p{
+    color: var(--cffy-theme-primary-a40);
+  }
+
+  animation: card_anim_left 1s ease 0s 1 normal forwards;
+}
+
+@keyframes card_anim_left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+button{
+  background-color: var(--cffy-theme-primary-a0);
+  border: none;
+  border-radius: 10px;
+  width: 60%;
+  color: #fff;
+}
+
+.limpiar{
+  background-color: var(--cffy-theme-surface-a10);
+}
