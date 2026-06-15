@@ -30,7 +30,6 @@ export class SignUpForm {
   address: string = '';
   password: string = '';
   confirmPassword: string = '';
-  imageProfile: string = '';
   role = 'usuario';
   imagen: string = '';
 
@@ -169,7 +168,7 @@ export class SignUpForm {
         direccion: this.address,
         password: this.password,
         role: this.role,
-        imagen: this.imageProfile,
+        imagen: this.imagen ? this.imagen : "profile-pic/default_profile-pic.svg",
       }
 
       users.push(user);

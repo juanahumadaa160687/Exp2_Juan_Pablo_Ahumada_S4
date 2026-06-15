@@ -32,6 +32,21 @@ export class CarroCompras {
 
   ngOnInit(): void {
 
+    let user_logged = sessionStorage.getItem('role');
+
+    if (user_logged !== 'usuario') {
+      Swal.fire({
+        title: 'Acceso denegado',
+        text: 'Debes iniciar sesión como usuario para realizar la compra',
+        icon: 'error',
+        timer: 3000,
+        showConfirmButton: false,
+      }).then(() => {
+        this.router.navigate(['/home']);
+      })
+      return;
+    }
+
     this.carrito_usuario.forEach((producto: any) => {
       let precio = parseFloat(producto.precio);
 
@@ -44,6 +59,7 @@ export class CarroCompras {
   eliminarProducto(id: number) {
 
     let producto = this.carrito_usuario.filtrarProducto(id);
+
     if (producto !== undefined) {
       Swal.fire({
         title: "¿Estas Seguro?",
@@ -72,6 +88,32 @@ export class CarroCompras {
   limpiarCarrito() {
     localStorage.removeItem('carrito');
     location.reload();
+  }
+
+  irPago() {
+    let pedidos = JSON.parse(localStorage.getItem('pedidos') || '[]');
+
+    let nuevo_pedido = {
+      id: pedidos.length + 1,
+      username: sessionStorage.getItem('username'),
+      fecha: new Date().toLocaleDateString(),
+      total: this.total,
+      estado: 'Pendiente'
+    }
+
+    pedidos.push(nuevo_pedido);
+
+    localStorage.setItem('pedidos', JSON.stringify(pedidos));
+
+    Swal.fire({
+      title: 'Compra realizada con éxito',
+      icon: 'success',
+      timer: 3000,
+      showConfirmButton: false,
+    }).then(() => {
+      localStorage.removeItem('carrito');
+      this.router.navigate(['/home']);
+    });
   }
 
 }

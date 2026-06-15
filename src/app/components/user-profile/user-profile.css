@@ -3,3 +3,11 @@
   color: var(--cffy-theme-primary-a40);
   border: 1px solid var(--cffy-theme-primary-a40);
 }
+
+.card-header{
+  border-bottom: 1px solid var(--cffy-theme-primary-a40);
+}
+
+.card-footer{
+  border-top: 1px solid var(--cffy-theme-primary-a40);
+}

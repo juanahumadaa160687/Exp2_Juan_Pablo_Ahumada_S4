@@ -29,7 +29,7 @@ export class Home {
     let user_exists = sessionStorage.getItem("username");
 
     if (user_exists) {
-      let cart = JSON.parse(localStorage.getItem("carrito") || "[]");
+      let cart = JSON.parse(sessionStorage.getItem("carrito") || "[]");
 
       let productos = JSON.parse(localStorage.getItem("productos") || "[]");
 
@@ -37,7 +37,7 @@ export class Home {
 
       cart.push(producto);
 
-      localStorage.setItem("carrito", JSON.stringify(cart));
+      sessionStorage.setItem("carrito", JSON.stringify(cart));
 
       Swal.fire({
         title: 'Producto añadido al carrito',

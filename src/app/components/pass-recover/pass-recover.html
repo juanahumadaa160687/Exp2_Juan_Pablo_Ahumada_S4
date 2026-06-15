@@ -1,1 +1,54 @@
-<p>pass-recover works!</p>
+<router-outlet>
+  <app-navbar></app-navbar>
+  <br>
+  <main>
+    <div class="container d-flex justify-content-center align-items-center flex-column" style="min-height: 60vh;">
+      <div class="container title p-1 mb-5 d-flex justify-content-start align-items-center">
+        <h2>Recuperar Contraseña</h2>
+      </div>
+
+      <div class="destacados container d-flex justify-content-center align-items-center flex-wrap gap-4" style="width: 30%">
+
+        @if (user_email != '' ) {
+
+        <form id="restart_pass">
+          <div class="mb-3">
+            <label for="new_password" class="form-label">Nueva Contraseña</label>
+            <input [(ngModel)]="password" type="password" class="form-control" id="new_password" name="new_password" required>
+            <div class="form-text">La contraseña debe tener al menos 8 caracteres, mayúsculas, minúsculas, dígitos y caracteres especiales (@$!%*?&)</div>
+            <div class="invalid-feedback" id="password_feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="confirm_new_password" class="form-label">Confirmar Nueva Contraseña</label>
+            <input [(ngModel)]="confirm_password" type="password" class="form-control" id="confirm_new_password" name="confirm_new_password" required>
+            <div class="invalid-feedback" id="confirm_password_feedback"></div>
+          </div>
+          <br>
+          <div class="mb-3 d-flex justify-content-center align-items-center">
+            <button type="submit" class="pt-2 pb-2" (click)="recoverPassword()">Guardar</button>
+          </div>
+        </form>
+        } @else {
+
+          <div class="container d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+            <div class="card p-4" style="width: 100%; max-width: 400px;">
+              <h2 class="mb-4 text-center">Recuperar Contraseña</h2>
+              <form id="forgot_password" class="needs-validation" novalidate>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Correo Electrónico</label>
+                  <input [(ngModel)]="user_email" type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico" name="email">
+                </div>
+                <div class="invalid-feedback mb-3" id="email_feedback"></div>
+                <div class="mb-3 mt-2 d-flex justify-content-center">
+                  <button type="submit" class="pt-1 pb-1" (click)="userEmail()">Recuperar Contraseña</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </main>
+  <br>
+  <app-footer></app-footer>
+</router-outlet>

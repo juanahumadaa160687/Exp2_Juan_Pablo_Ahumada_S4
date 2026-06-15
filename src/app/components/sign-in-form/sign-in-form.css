@@ -1,3 +1,52 @@
 #sign_in{
   color: var(--cffy-theme-primary-a40);
 }
+
+.card {
+  background-color: var(--cffy-theme-surface-a10);
+  border: 1px solid var(--cffy-theme-primary-a40);
+  border-radius: 20px;
+}
+
+.card-header{
+  border-bottom: 1px solid var(--cffy-theme-primary-a40);
+}
+
+.card-title{
+  color: var(--cffy-theme-primary-a40);
+}
+
+a{
+  color: var(--cffy-theme-primary-a0);
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+
+.card-text{
+  color: var(--cffy-theme-primary-a40);
+}
+
+.form-label{
+  color: var(--cffy-theme-primary-a40);
+  font-size: 9pt;
+}
+
+.form-text{
+  color: var(--cffy-theme-primary-a40);
+}
+
+.form-control{
+  background-color: var(--cffy-theme-surface-a10);
+  border-top: none;
+  border-bottom: 2px solid var(--cffy-theme-primary-a40);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  color: var(--cffy-theme-primary-a40);
+}
+
+.card-footer{
+  border-top: none;
+}

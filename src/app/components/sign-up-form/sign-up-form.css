@@ -5,3 +5,7 @@
 .form-text{
   color: var(--cffy-theme-primary-a40);
 }
+
+.form-control{
+  background-color: var(--cffy-theme-surface-a0);
+}

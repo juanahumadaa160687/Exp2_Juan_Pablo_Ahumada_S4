@@ -8,6 +8,10 @@ import {Juegos} from './components/juegos/juegos';
 import {Ofertas} from './components/ofertas/ofertas';
 import {UserProfile} from './components/user-profile/user-profile';
 import {Producto} from './components/producto/producto';
+import {PassRecover} from './components/pass-recover/pass-recover';
+import {EditProfile} from './components/edit-profile/edit-profile';
+import {TerminosCondiciones} from './components/terminos-condiciones/terminos-condiciones';
+import {Privacidad} from './components/privacidad/privacidad';
 
 
 export const routes: Routes = [
@@ -52,5 +56,21 @@ export const routes: Routes = [
   {
     path: 'producto/:id',
     component: Producto,
+  },
+  {
+    path: 'password-reset?email=:email',
+    component: PassRecover,
+  },
+  {
+    path: 'edit_profile/:username',
+    component: EditProfile,
+  },
+  {
+    path: 'terminos-condiciones',
+    component: TerminosCondiciones
+  },
+  {
+    path: 'privacidad',
+    component: Privacidad,
   }
 ];

@@ -1,0 +1,106 @@
+
+<main>
+
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="p-4" id="registro_form">
+      <div class="container title p-1 mb-4 d-flex justify-content-start align-items-center">
+        <h2 class="mb-0">Registro de Usuarios</h2>
+      </div>
+      <br>
+      <form id="signup_form" class="needs-validation row g-3" novalidate>
+
+        <div class="col-md-3">
+          <div class=" mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" [(ngModel)]="nombre" class="form-control" id="nombre" name="nombre">
+            <div class="invalid-feedback" id="nombre_feedback">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" [(ngModel)]="apellido" class="form-control" id="apellido" name="apellido">
+            <div class="invalid-feedback" id="apellidos_feedback">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" [(ngModel)]="username" class="form-control" id="username" name="username">
+            <div class="invalid-feedback" id="username_feedback">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" [(ngModel)]="email" class="form-control" id="email" name="email">
+            <div class="form-text d-flex justify-content-end"><small>No compartiremos esta información con terceros.</small></div>
+            <div class="invalid-feedback" id="email_feedback"></div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class=" mb-3">
+            <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+            <input type="date" [(ngModel)]="birthday" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+            <div class="invalid-feedback" id="fecha_nacimiento_feedback">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class=" mb-3">
+            <label for="address" class="form-label">Dirección de Despacho</label>
+            <input type="text" [(ngModel)]="address" class="form-control" id="address" name="address">
+            <div class="form-text d-flex justify-content-start"><small>*Opcional</small></div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class=" mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" [(ngModel)]="password" class="form-control" id="password" name="password">
+            <div class="form-text"><small>La contraseña debe tener al menos 8 caracteres, mayúsculas, minúsculas, dígitos y caracteres especiales (@$!%*?&)</small></div>
+            <div class="invalid-feedback" id="password_feedback">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class=" mb-3">
+            <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+            <input type="password" [(ngModel)]="confirmPassword" class="form-control" id="confirmPassword" name="confirmPassword">
+            <div class="invalid-feedback" id="confirmPassword_feedback">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="mb-3">
+            <label for="fotoPerfil" class="form-label">Foto de Perfil</label>
+            <input type="text" [(ngModel)]="imagen" class="form-control" id="fotoPerfil" name="fotoPerfil">
+          </div>
+        </div>
+
+        <div class="col-md mb-3 visually-hidden" style="display: none;">
+          <input type="text" value="usuario" class="form-control" id="role" name="role"> <!-- Rol de usuario oculto, se asigna automáticamente -->
+          <label for="role" class="form-label">Rol</label>
+        </div>
+
+        <div class="row mt-4">
+          <div class="mb-3 col-md-12 d-flex justify-content-end gap-3">
+            <button class="pt-2 pb-2 limpiar" type="reset" style="max-width: 20%">Limpiar</button>
+            <button class="pt-2 pb-2" type="submit" (click)="saveUser()" style="max-width: 20%">Registrarse</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</main>

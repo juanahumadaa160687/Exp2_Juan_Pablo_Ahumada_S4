@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, inject} from '@angular/core';
 import {Footer} from '../footer/footer';
 import {ActivatedRoute, Router, RouterLink, RouterOutlet} from '@angular/router';
 import {NavbarComponent} from '../navbar/navbar';
 import {NgOptimizedImage} from '@angular/common';
 import Swal from 'sweetalert2';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -21,36 +22,48 @@ import Swal from 'sweetalert2';
 export class Juegos implements OnInit {
 
   categoria: string = '';
-
   juegos_all = JSON.parse(localStorage.getItem('productos') || '[]');
-
   juegos: Array<any> = [];
+  categoriaParam: string = '';
+
+  private route = inject(ActivatedRoute);
+  private routeSub!: Subscription;
+  category!: string;
 
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+
+     this.categoriaParam = this.activatedRoute.snapshot.paramMap.get('categoria') || '';
+
   }
 
   ngOnInit() {
+    this.routeSub = this.route.params.subscribe(params => {
+      this.categoriaParam = params['categoria'];
+      this.reloadPage(this.categoriaParam);
+    });
+  }
 
-    let categoriaParam = this.activatedRoute.snapshot.paramMap.get('categoria');
+  ngOnDestroy() {
+    this.routeSub.unsubscribe();
+  }
 
-    if (categoriaParam === 'mesa') {
+  reloadPage(categoria: string){
+
+    if (this.categoriaParam === 'mesa') {
       this.categoria = 'Juegos de Mesa';
       this.juegos = this.juegos_all.filter((j: any) => j.categoria === 'Juegos de Mesa');
-      return;
     }
-    else if (categoriaParam === 'cartas') {
+
+    else if (this.categoriaParam === 'cartas') {
       this.categoria = 'Juegos de Cartas';
       this.juegos = this.juegos_all.filter((j: any) => j.categoria === 'Juegos de Cartas');
-      return;
-
     }
-    else if (categoriaParam === 'rol') {
+
+    else if (this.categoriaParam === 'rol') {
       this.categoria = 'Juegos de Rol';
       this.juegos = this.juegos_all.filter((j: any) => j.categoria === 'Juegos de Rol');
-      return;
     }
-
   }
 
   comprarJuego(id: number) {
@@ -59,13 +72,13 @@ export class Juegos implements OnInit {
 
     if (user_exists) {
 
-      let shoppingCart = JSON.parse(localStorage.getItem('carrito') || '[]');
+      let shoppingCart = JSON.parse(sessionStorage.getItem('carrito') || '[]');
 
       let juego = this.juegos.find((j: any) => j.id === id);
 
       shoppingCart.push(juego);
 
-      localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+      sessionStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
 
       Swal.fire({
         icon: 'success',

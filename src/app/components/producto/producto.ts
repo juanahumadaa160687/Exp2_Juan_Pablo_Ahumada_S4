@@ -52,13 +52,13 @@ export class Producto implements OnInit {
     let user_exists = sessionStorage.getItem('username');
 
     if(user_exists){
-      let shoppingCart = JSON.parse(localStorage.getItem('carrito') || '[]');
+      let shoppingCart = JSON.parse(sessionStorage.getItem('carrito') || '[]');
 
       let producto = this.productos.find((p: any) => p.id === id);
 
       shoppingCart.push(producto);
 
-      localStorage.setItem('carrito', JSON.stringify(shoppingCart));
+      sessionStorage.setItem('carrito', JSON.stringify(shoppingCart));
 
       Swal.fire({
         icon: 'success',

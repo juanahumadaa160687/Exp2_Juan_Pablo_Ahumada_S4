@@ -1,37 +1,46 @@
 <router-outlet>
   <app-navbar></app-navbar>
   <br>
-  <div class="container d-flex justify-content-center align-items-center" style="min-height: 60vh;">
-    <div class="p-4" id="sign_in" style="width: 100%; max-width: 450px; height: 550px">
+  <div class="container d-flex justify-content-center align-items-center mb-4">
+    <div class="card d-flex justify-content-center align-items-center pe-4 ps-4 pt-4" style="max-width: 25rem">
+      <h4 class="card-title text-center pt-4">Iniciar Sesión</h4>
       <br>
-      <h2 class="text-center mb-4 p-2">Iniciar Sesión</h2>
       <br>
-      <div class="mt-4">
-        <form id="login_form" class="needs-validation row g-3" novalidate>
-          <div class="col-md-12">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="username" placeholder="Username" name="username" >
-              <label for="username" class="form-label">Username</label>
-              <div class="invalid-feedback" id="feedback_username"></div>
+      <div class="card-body mt-4 mb-4 d-flex flex-column justify-content-center align-items-center">
+          <form id="login_form" class="needs-validation row g-3" novalidate>
+            <div class="col-md-12">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input [(ngModel)]="login_username" type="text" class="form-control" id="username" name="username" >
+                <div class="invalid-feedback" id="feedback_username"></div>
+              </div>
             </div>
-          </div>
-          <div class="col-md-12">
-            <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password" >
-              <label for="password" class="form-label">Contraseña</label>
-              <div class="invalid-feedback" id="feedback_password"></div>
+            <div class="col-md-12">
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input [(ngModel)]="login_password" type="password" class="form-control" id="password" name="password" >
+                <div class="invalid-feedback" id="feedback_password"></div>
+                <div class="text-form d-flex justify-content-end">
+                  <small><a routerLink="/password-reset?email=''" class="text-decoration-none">¿Olvidaste tu contraseña?</a></small>
+                </div>
+              </div>
             </div>
-          </div>
+            <br>
 
-          <div class="mb-3 mt-3" id="forgot_password">
-            <a routerLink="" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
-            <p>No estas registrado. <a routerLink="/sign-up">Registrate aquí</a></p>
-          </div>
-          <div class="mb-3 mt-3 d-flex justify-content-center">
-            <button class="pt-2 pb-2" type="submit" (click)="userLogin()">Iniciar Sesión</button>
-          </div>
-        </form>
-      </div>
+            <div class="mt-5 mb-3 d-flex justify-content-center align-items-center">
+              <button class="pt-2 pb-2" type="submit" (click)="userLogin()">Iniciar Sesión</button>
+            </div>
+          </form>
+        <br>
+        <div class="d-flex justify-content-center align-items-center gap-3">
+          <button class="pt-2 pb-2" type="button" style="border-radius: 50%; width: 40px; background-color: red" ><i class="bi bi-google"></i></button>
+          <button class="pt-2 pb-2" type="button" style="border-radius: 50%; width: 40px; background-color: blue"><i class="bi bi-facebook"></i></button>
+        </div>
+        </div>
+        <div class="card-footer d-flex justify-content-center align-items-center pb-4">
+            <span style="color: var(--cffy-theme-primary-a40);">¿No tienes una cuenta?</span>
+            <a routerLink="/sign-up" class="text-decoration-none ms-2">Regístrate</a>
+        </div>
     </div>
   </div>
   <br>

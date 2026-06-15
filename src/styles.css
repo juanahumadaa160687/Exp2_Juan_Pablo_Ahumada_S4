@@ -48,15 +48,18 @@
 }
 
 body{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   margin: 0;
   padding: 0;
-  height: 100vh;
   font-family: Roboto, sans-serif;
   background-color: var(--cffy-theme-surface-a0);
 }
 
 main{
   flex: 1;
+  min-height: 60vh;
 }
 
 .title{
@@ -97,3 +100,27 @@ button{
 .limpiar{
   background-color: var(--cffy-theme-surface-a10);
 }
+
+.card-text{
+  color: var(--cffy-theme-primary-a40);
+}
+
+.form-label{
+  color: var(--cffy-theme-primary-a40);
+  font-size: 9pt;
+}
+
+.form-text{
+  color: var(--cffy-theme-primary-a40);
+}
+
+.form-control{
+  background-color: var(--cffy-theme-surface-a10);
+  border-top: none;
+  border-bottom: 2px solid var(--cffy-theme-primary-a40);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  color: var(--cffy-theme-primary-a40);
+}
+

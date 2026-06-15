@@ -46,6 +46,19 @@ export class AdminDashboard {
 
   ngOnInit() {
 
+    let user_role = sessionStorage.getItem('role');
+
+    if (user_role !== 'admin') {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Acceso denegado',
+        text: 'No tienes permiso para acceder a esta página',
+        confirmButtonText: 'Aceptar'
+      }).then(() => {
+        this.router.navigate(['/home']);
+      })
+    }
+
     let table = new Datatable('#adminTable', {
       responsive: true,
       searching: false,
@@ -74,6 +87,7 @@ export class AdminDashboard {
         })
     });
   }
+
   deleteProd(id: number) {
     let producto_borrar = this.productos.filter((producto: any) => producto.id === id);
 
